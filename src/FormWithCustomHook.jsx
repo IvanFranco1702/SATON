@@ -89,18 +89,6 @@ export const FormWithCustomHook = () => {
               />
             </Grid>
 
-
-            <Grid 
-              container
-            //   display={ !!errorMessage ? '': 'none' }
-              sx={{ mt: 1 }}>
-              <Grid 
-                  item 
-                  xs={ 12 }
-                >
-                {/* <Alert severity='error'>{ errorMessage }</Alert> */}
-              </Grid>
-            </Grid>
             
             <Grid container spacing={ 2 } sx={{ mb: 2, mt: 1 }}>
               <Grid item xs={ 12 } sm={ 6 }>
@@ -109,7 +97,8 @@ export const FormWithCustomHook = () => {
                   type="submit" 
                   variant='contained' 
                   fullWidth
-                  alignItems="center">
+                  align-items="center"
+                  >
                   Login
                 </Button>
               </Grid>

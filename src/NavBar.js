@@ -38,11 +38,13 @@ import { IconContext } from 'react-icons';
 			
 		  return (
 			<>
-				<li key={index} className="item">
-					{item.icon}
-					<span> {item.title}</span>
-				</li>
-		
+        <ul>
+          <li key={index} className="item">
+            {item.icon}
+            <span> {item.title}</span>
+          </li>
+          <li>hola</li>
+		    </ul>
 				
 			</>
 		  );

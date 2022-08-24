@@ -20,14 +20,15 @@ export const Navbar = ({sidebar}) => {
 		  <div className={`sidebar ${sidebar && 'open' }`}>
 
 			
-			<ul className="nav-list">
+			<ul>
 			
 			{SidebarData.map((item, index) => {
 			
 				  return (
 					
-					 <SubMenu 
-				  item= { item } 
+					 <SubMenu  
+					 className="close" 
+				  item= { item }
 				  key= { index }
 				  sidebarState =  { sidebar }
 				  />

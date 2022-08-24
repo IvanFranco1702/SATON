@@ -20,7 +20,7 @@ import { Link } from 'react-router-dom';
 
 const App = () => {
 	
- const [sidebar, setSidebar] = useState(false);
+ const [sidebar, setSidebar] = useState(true);
 
   return (
     <>

@@ -9,6 +9,13 @@ import { Google } from '@mui/icons-material';
 
 import { AuthLayout } from './AuthLayout';
 import { useForm } from './hooks/useForm';
+let headers = new Headers()
+
+headers.append('Content-Type', 'application/json');
+headers.append('Accept', 'application/json');
+// headers.append('Authorization', 'Basic ' + base64.encode(username + ":" +  password));
+headers.append('Origin','http://localhost:3000');
+
 
 // import { useForm } from '../../hooks';
 // import { startGoogleSignIn, startLoginWithEmailPassword } from '../../store/auth';
@@ -24,6 +31,52 @@ const formValidations = {
   }
   
 
+  
+  const url = `https://128.128.10.221/SATXWS/SatAuth/SatAuth.svc/MetodosAutenticacionHabilitados`
+  const urlIAuthUs= `https://128.128.10.221/SATXWS/SatAuth/SatAuth.svc/InicioAutenticacionUsuario` 
+  urlIAuthUs
+  fetch(url,{
+    method:'POST',
+    headers:{
+      'Content-Type': 'application/json'
+    },
+    body:{
+      
+        IdentificadorOrigen: 
+          {
+              __type: "IdentificadorOrigenDispositivo_AppExt:http://ar.com.satxws/"
+          },
+        NroFactorAutenticacion: 1
+      
+    }   
+    
+
+  })
+  .then((res)=>res.json())
+  .then((data)=>data)
+  
+
+    //   fetch(urlIAuthUs, {
+    //   method:'POST', 
+    //   headers:{
+    //     'Content-Type': 'application/json',
+    //   }, 
+    //   body:{
+    //     NroFactorAutenticacion: 1,
+    //     CodigoMetodoAutenticacion: 2,
+    //     Usuario: "nova\\administrador",
+    //     IdentificadorOrigen: 
+    //       {
+    //         __type: "IdentificadorOrigenDispositivo_AppExt:http://ar.com.satxws/"
+    //       },
+    //     TipoTokenSesionRequerido: 1
+    //   }
+    // })
+    // .then((res)=>res.json())
+    // .then((data)=>{
+    //   debugger
+    // }
+    // )
 
 export const FormWithCustomHook = () => { 
   const [formSubmitted, setFormSubmitted] = useState(false);
@@ -37,6 +90,9 @@ export const FormWithCustomHook = () => {
   }
 
   
+  
+   
+
 
     const{email,password,username,handleChange,isFormValid,formState,emailValid,passwordValid,usernameValid}=useForm(formData,formValidations)
 
